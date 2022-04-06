@@ -17,7 +17,7 @@ DOWN = 2
 LEFT = 3
 
 pygame.init()
-screen = pygame.display.set_mode((600, 600))
+screen = pygame.display.set_mode((500, 500))
 pygame.display.set_caption('Jogo da Cobrinha')
 # gerar cobrinha
 snake = [(200, 200), (210, 200), (220,200)]
@@ -60,7 +60,7 @@ while not game_over:
         score = score + 1
 
     # checa se a cobrinha bateu nas bordas
-    if snake[0][0] == 600 or snake[0][1] == 600 or snake[0][0] < 0 or snake[0][1] < 0:
+    if snake[0][0] == 500 or snake[0][1] == 500 or snake[0][0] < 0 or snake[0][1] < 0:
         game_over = True
         break
 
@@ -89,14 +89,14 @@ while not game_over:
     screen.fill((50,50,50))
     screen.blit(apple, apple_pos)
 
-    for x in range(0, 600, 10): # linhas horizontais
-        pygame.draw.line(screen, (50, 50, 50), (x, 0), (x, 600))
-    for y in range(0, 600, 10): # linhas verticais
-        pygame.draw.line(screen, (50, 50, 50), (0, y), (600, y))
+    for x in range(0, 500, 10): # linhas horizontais
+        pygame.draw.line(screen, (50, 50, 50), (x, 0), (x, 500))
+    for y in range(0, 500, 10): # linhas verticais
+        pygame.draw.line(screen, (50, 50, 50), (0, y), (500, y))
 
     score_font = font.render('Pontos: %s' % (score), True, (255, 255, 255))
     score_rect = score_font.get_rect()
-    score_rect.topleft = (600 - 120, 10)
+    score_rect.topleft = (500 - 120, 10)
     screen.blit(score_font, score_rect)
 
     for pos in snake:
@@ -108,7 +108,7 @@ while True:
     game_over_font = pygame.font.Font('freesansbold.ttf', 75)
     game_over_screen = game_over_font.render('Game Over', True, (255, 20, 20))
     game_over_rect = game_over_screen.get_rect()
-    game_over_rect.midtop = (600/2, 300-75)
+    game_over_rect.midtop = (500/2, 500/2-75)
     screen.blit(game_over_screen, game_over_rect)
     pygame.display.update()
     pygame.time.wait(500)
